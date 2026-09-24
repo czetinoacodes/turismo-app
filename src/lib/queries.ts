@@ -40,14 +40,27 @@ export const getViajeById = cache(async (id: number): Promise<Viaje | null> => {
   return data;
 });
 
-/*
-// Devuelve el destino que tiene ese slug, o null si no existe
+// Obtener un destino por slug
 export const getDestinoBySlug = cache(async (slug: string): Promise<Destino | null> => {
-  // Tú lo implementas
+  const { data, error } = await supabase
+    .from("destinos")
+    .select("*")
+    .eq("slug", slug)
+    .maybeSingle<Destino>();
+
+  if (error) throw new Error(`Error al buscar el destino: ${error.message}`);
+  return data;
 });
 
-// Devuelve los viajes de un destino, ordenados por fecha
+// Obtener viajes de un destino específico
 export const getViajesByDestino = cache(async (destinoId: number): Promise<Viaje[]> => {
-  // Tú lo implementas
+  const { data, error } = await supabase
+    .from("viajes")
+    .select(VIAJE_SELECT)
+    .eq("destino_id", destinoId)
+    .order("fecha", { ascending: true })
+    .overrideTypes<Viaje[], { merge: false }>();
+
+  if (error) throw new Error(`No se pudieron cargar los viajes: ${error.message}`);
+  return data;
 });
-*/

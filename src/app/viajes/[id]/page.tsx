@@ -1,3 +1,5 @@
+//VISTA QUE DETALLA INFO DE CADA VIAJE
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,7 +61,7 @@ export default async function ViajePage({ params }: Props) {
       </Link>
 
       {/* Imagen del destino */}
-      <div className="relative aspect-video overflow-hidden rounded-3xl bg-stone-100">
+      <div className="relative aspect-video overflow-hidden bg-stone-100">
         {viaje.destinos?.imagen_url && (
           <Image
             src={viaje.destinos.imagen_url}
@@ -78,7 +80,7 @@ export default async function ViajePage({ params }: Props) {
         {viaje.destinos && (
           <Link
             href={`/destinos/${viaje.destinos.slug}`}
-            className="font-semibold uppercase tracking-wide text-blue-200 hover:underline"
+            className="font-semibold uppercase tracking-wide text-blue-800 hover:underline" 
           >
             {viaje.destinos.nombre}
           </Link>
