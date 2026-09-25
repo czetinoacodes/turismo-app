@@ -26,37 +26,37 @@ export default async function HomePage() {
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
-        <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-          <h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-black text-white/90 mb-6 leading-tight"
+        <div className="relative h-full flex flex-col items-start justify-center text-left px-6">
+          <h1
+            className="text-5xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             ¡Descubre, disfruta y vive El Salvador con ACOTOURS!
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-2xl font-light">
+
+          <p className="text-xl md:text-4xl text-gray-100 mb-8 max-w-4xl font-light">
             Encuentra nuevos destinos, experiencias inolvidables y aventuras para compartir. ¡Tu próximo viaje comienza aquí!
           </p>
 
           <a
             href="#viajes"
-            className="px-8 py-4 bg-amber-400 hover:bg-yellow-100 text-black font-semibold rounded-full transition transform hover:scale-105 shadow-lg"
+            className="px-8 py-4 bg-amber-400 hover:bg-yellow-100 text-black font-semibold rounded-full transition transform hover:scale-105 shadow-lg inline-block"
           >
             Ver viajes
           </a>
         </div>
       </section>
 
-{/* VIAJES SECTION */}
+      {/* VIAJES SECTION */}
       <section id="viajes" className="py-16 bg-stone-70 px-6">
         <div className="mx-auto max-w-7xl">
-          <h2 
-            className="text-4xl font-bold text-center mb-12 text-amber-100 uppercase"
+          <h1
+            className="text-4xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Calendario de Actividades
-          </h2>
-          
+            ¡Explora entre todas las opciones de viaje disponibles!
+          </h1>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {viajes.map((v) => (
               <ViajeCard key={v.id} viaje={v} />
@@ -66,24 +66,24 @@ export default async function HomePage() {
       </section>
 
       {/* DESTINOS SECTION */}
-      <section id="destinos" className="py-16 bg-stone-60 px-6">
+      <section id="destinos" className="bg-stone-60 px-5 pb-20">
         <div className="mx-auto max-w-7xl">
-          <h2 
-            className="text-4xl font-bold text-center mb-12 text-amber-100"
+          <h1
+            className="text-5xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight text-right"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Destinos
-          </h2>
-          
+            Destinos que hemos descubierto...
+          </h1>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {destinos.map((d) => (
               <Link
                 key={d.id}
                 href={`/destinos/${d.slug}`}
-                className="group overflow-hidden rounded-3xl border-2 border-stone-100 bg-white hover:border-blue-500 transition"
+                className="group overflow-hidden rounded-3xl border-2 border-amber-600 bg-zinc-800 hover:border-amber-200 transition"
               >
                 {d.imagen_url && (
-                  <div className="relative aspect-square overflow-hidden bg-stone-200">
+                  <div className="relative aspect-[2/1] overflow-hidden bg-stone-200">
                     <Image
                       src={d.imagen_url}
                       alt={d.nombre}
@@ -92,17 +92,14 @@ export default async function HomePage() {
                     />
                   </div>
                 )}
-                
+
                 <div className="p-5">
-                  <h3 
-                    className="text-xl font-bold text-stone-900 group-hover:text-blue-600 transition uppercase"
+                  <h3
+                    className="text-3xl font-bold text-white transition text-center "
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
                     {d.nombre}
                   </h3>
-                  <p className="mt-2 text-sm text-stone-600 line-clamp-2">
-                    {d.descripcion}
-                  </p>
                 </div>
               </Link>
             ))}
@@ -110,7 +107,31 @@ export default async function HomePage() {
         </div>
       </section>
 
-      
+      {/* COTIZA TU VIAJE CON NOSOTROS */}
+      <section id="destinos" className="bg-zinc-300 px-5 py-20">
+        <div className="mx-auto max-w-7xl">
+          <h1
+            className="text-5xl md:text-6xl lg:text-8xl font-black text-black/90 mb-6 leading-tight text-left"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            ¡Cotiza tu viaje con nosotros!
+          </h1>
+          <p className="text-xl md:text-4xl text-gray-800 mb-4 max-w-4xl font-bold">
+            ¿Tenés planeada una aventura?
+          </p>
+          <p className="text-xl md:text-2xl text-gray-800 mb-8 max-w-4xl font-light">
+            Escríbenos y explora las diferentes opciones que tenemos para ofrecerte.
+          </p>
+          <a
+            href="#viajes"
+            className="px-8 py-4 bg-amber-500 hover:bg-yellow-200 text-black font-semibold rounded-full transition transform hover:scale-105 shadow-lg inline-block"
+          >
+            Cotizar mi viaje
+          </a>
+
+
+        </div>
+      </section>
     </div>
   );
 }

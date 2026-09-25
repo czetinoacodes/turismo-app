@@ -22,10 +22,10 @@ export default function ViajeCard({ viaje }: { viaje: Viaje }) {
   return (
     <Link
       href={`/viajes/${viaje.id}`}
-      className="group overflow-hidden rounded-md border-2 border-amber-500 bg-white shadow-xl hover:shadow-xl transition-all"
+      className="group overflow-hidden rounded-md border-3 border-amber-600 bg-white shadow-xl hover:shadow-xl transition-all"
     >
       {/* Imagen */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
+      <div className="relative aspect-[2/1] overflow-hidden bg-stone-100">
         {viaje.destinos?.imagen_url && (
           <Image
             src={viaje.destinos.imagen_url}
@@ -47,18 +47,21 @@ export default function ViajeCard({ viaje }: { viaje: Viaje }) {
       </div>
 
       {/* Contenido */}
-      <div className="space-y-3 p-5 bg-neutral-700">
+      <div className="space-y-3 p-5 bg-zinc-800">
         {/* Destino */}
         {viaje.destinos && (
-          <span className="text-xl font-bold uppercase tracking-wide text-amber-500"  style={{ fontFamily: "var(--font-playfair)" }}>
+          <span className="md:text-xl lg:text-3xl font-black text-white/90 mb-6 leading-tight"
+            style={{ fontFamily: "var(--font-playfair)" }}>
             {viaje.destinos.nombre}
           </span>
         )}
 
+
+
    
 
         {/* Info: Fecha y hora */}
-        <div className="space-y-1 text-sm text-stone-200">
+        <div className="space-y-1 text-sm text-stone-200 font-light">
           <p className="font-semibold">Fecha: {formatearFecha(viaje.fecha)}</p>
           <p>Hora: {viaje.hora_salida} - {viaje.hora_retorno}</p>
         </div>
@@ -76,7 +79,7 @@ export default function ViajeCard({ viaje }: { viaje: Viaje }) {
         </div>
 
         {/* Precio */}
-        <p className="pt-2 text-2xl font-bold text-yellow-600">
+        <p className="pt-2 text-2xl font-bold text-yellow-200">
           ${viaje.precio.toFixed(2)}
         </p>
       </div>

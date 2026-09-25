@@ -20,9 +20,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const viaje = Number.isInteger(Number(id)) ? await getViajeById(Number(id)) : null;
-  
+
   if (!viaje) return { title: "Viaje no encontrado" };
-  
+
   return {
     title: viaje.descripcion,
     description: `${viaje.destinos?.nombre} - ${viaje.precio} | ACOTOURS`,
@@ -55,13 +55,14 @@ export default async function ViajePage({ params }: Props) {
   });
 
   return (
-    <article className="mx-auto max-w-3xl space-y-8">
+    <article className="mx-auto w-full px-15">
       <Link href="/" className="text-sm text-stone-500 hover:text-blue-700">
         ← Volver al inicio
       </Link>
 
       {/* Imagen del destino */}
-      <div className="relative aspect-video overflow-hidden bg-stone-100">
+      
+      <div className="relative h-120 w-full overflow-hidden">
         {viaje.destinos?.imagen_url && (
           <Image
             src={viaje.destinos.imagen_url}
@@ -72,72 +73,77 @@ export default async function ViajePage({ params }: Props) {
             className="object-cover"
           />
         )}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
+
       {/* Header con info principal */}
-      <header className="space-y-3">
+      <header className="relative h-full flex flex-col items-start justify-center text-left px-6">
         {/* Destino como link */}
         {viaje.destinos && (
           <Link
             href={`/destinos/${viaje.destinos.slug}`}
-            className="font-semibold uppercase tracking-wide text-blue-800 hover:underline" 
+            className="text-5xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight"
+            style={{ fontFamily: "var(--font-playfair)" }}
           >
             {viaje.destinos.nombre}
           </Link>
         )}
 
-        {/* Estado */}
+       
+      </header>
+       {/* Estado */}
         <div className="flex items-center gap-3">
           <span
-            className={`rounded-full px-4 py-2 text-sm font-semibold ${
-              colorEstado[viaje.estado] ?? "bg-stone-100 text-stone-700"
-            }`}
+            className={`rounded-full px-4 py-2 text-sm font-semibold ${colorEstado[viaje.estado] ?? "bg-stone-100 text-stone-700"
+              }`}
           >
             {viaje.estado.charAt(0).toUpperCase() + viaje.estado.slice(1)}
           </span>
         </div>
-      </header>
 
       {/* Detalles del viaje */}
-      <section className="grid gap-6 sm:grid-cols-2">
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
-          <h3 className="mb-4 text-lg font-bold text-black">Información del viaje</h3>
-          <div className="space-y-3 text-sm">
+      <section className="grid gap-6 sm:grid-cols-2 py-10">
+        <div className="rounded-md border-3 border-amber-600 bg-zinc-800 shadow-xl p-6">
+          <h3 className="mb-4 text-3xl font-bold text-white text-center">Información del viaje</h3>
+          <div className="space-y-3 text-xl text-stone-100">
             <div>
-              <p className="font-semibold text-stone-700">Fecha</p>
-              <p className="text-stone-600">{fechaFormato}</p>
+              <p className="font-semibold">Fecha:</p>
+              <p className="text-stone-400">{fechaFormato}</p>
             </div>
             <div>
-              <p className="font-semibold text-stone-700">Horario</p>
-              <p className="text-stone-600">
+              <p className="font-semibold">Horario:</p>
+              <p className="text-stone-400">
                 {viaje.hora_salida} - {viaje.hora_retorno}
               </p>
             </div>
             <div>
-              <p className="font-semibold text-stone-700">Tipo de transporte</p>
-              <p className="text-stone-600">{viaje.tipo_transporte}</p>
+              <p className="font-semibold">Tipo de transporte:</p>
+              <p className="text-stone-400">{viaje.tipo_transporte}</p>
             </div>
             <div>
-              <p className="font-semibold text-stone-700">Capacidad</p>
-              <p className="text-stone-600">{viaje.capacidad_total} personas</p>
+              <p className="font-semibold">Capacidad:</p>
+              <p className="text-stone-400">{viaje.capacidad_total} personas</p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
-          <h3 className="mb-4 text-lg font-bold text-black">Servicios</h3>
-          <div className="space-y-3 text-sm">
+
+
+        <div className="rounded-md border-3 border-amber-600 bg-zinc-800 shadow-xl p-6">
+          <h3 className="mb-4 text-3xl font-bold text-white text-center">Servicios</h3>
+          <div className="space-y-3 text-xl text-stone-100">
             <div>
-              <p className="font-semibold text-stone-700">Precio</p>
-              <p className="text-2xl font-bold text-blue-700">
+              <p className="font-semibold">Precio:</p>
+              <p className="text-2xl font-bold text-amber-200">
                 ${viaje.precio.toFixed(2)}
               </p>
             </div>
             <div>
-              <p className="font-semibold text-stone-700">Servicio domiciliar</p>
+              <p className="font-semibold">Servicio domiciliar:</p>
               <p className="text-stone-600">
                 {viaje.servicio_domiciliar ? (
-                  <span className="inline-block rounded bg-purple-200 px-2 py-1 text-xs font-semibold text-green-700">
+                  <span className="inline-block rounded bg-yellow-400 px-2 py-1 text-xs font-semibold text-black">
                     ✓ Incluido
                   </span>
                 ) : (
@@ -152,15 +158,15 @@ export default async function ViajePage({ params }: Props) {
       </section>
 
       {/* Descripción completa */}
-      <section className="rounded-2xl border border-stone-200 bg-white p-6">
-        <h3 className="mb-4 text-lg font-bold text-black">Descripción</h3>
-        <p className="text-stone-700">{viaje.descripcion}</p>
+      <section className="bg-stone-900 py-10 mx-auto max-w-6xl text-justify justify-items-center">
+        <h3 className="mb-4 text-3xl font-bold text-white text-center">Descripción del viaje</h3>
+        <p className="text-stone-300 text-xl">{viaje.descripcion}</p>
       </section>
 
       {/* Call to action */}
-      <div className="rounded-2xl bg-blue-50 p-6 text-center">
-        <p className="mb-4 text-stone-700">¿Te interesa este viaje?</p>
-        <button className="rounded-full bg-blue-700 px-8 py-3 font-semibold text-white transition hover:bg-blue-800">
+      <div className="rounded-2xl bg-yellow-200 py-10 my-10 text-center max-w-4xl justify-items-center mx-auto">
+        <p className="mb-4 text-3xl font-bold text-black text-center">¿Te interesa este viaje?</p>
+        <button className="rounded-full bg-yellow-400 px-8 py-3 font-semibold text-black transition hover:bg-blue-800">
           Reservar viaje
         </button>
       </div>

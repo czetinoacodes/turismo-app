@@ -7,7 +7,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-black/80 backdrop-blur">
+    <header className="sticky top-0 w-full z-50 bg-black/40 backdrop-blur">
       <nav className="mx-auto flex max-w-full items-center justify-between px-6 md:px-8 py-6">
         <Link 
           href="/" 
@@ -18,14 +18,14 @@ export default function Navbar() {
         </Link>
 
         {/* ESCRITORIO */}
-        <div className="hidden md:flex gap-8 text-xl font-medium text-amber-400">
+        <div className="hidden md:flex gap-8 text-xl font-medium text-yellow-400">
           <Link href="/#destinos" className="hover:text-yellow-100 transition">
             Destinos
           </Link>
           <Link href="/#viajes" className="hover:text-yellow-100 transition">
             Viajes
           </Link>
-          <Link href="/quienes-somos" className="hover:text-yellow-100 transition">
+          <Link href="/about-us/" className="hover:text-yellow-100 transition">
             ¿Quiénes somos?
           </Link>
         </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
             Viajes
           </Link>
           <Link 
-            href="/#about-us" 
+            href="/about-us" 
             className="block text-white hover:text-yellow-400 transition font-medium py-2"
             onClick={() => setMenuOpen(false)}
           >
