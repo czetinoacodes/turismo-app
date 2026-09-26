@@ -61,20 +61,20 @@ export default async function DestinoPage({ params }: Props) {
 
       {/* Header */}
       <header className="space-y-4">
-        <h1 className="text-4xl font-extrabold">{destino.nombre}</h1>
-        <p className="text-lg text-stone-600">{destino.descripcion}</p>
+        <h1 className="text-4xl font-extrabold text-stone-100">{destino.nombre}</h1>
+        <p className="text-lg text-stone-300">{destino.descripcion}</p>
 
         {/* Info del destino */}
         <div className="grid gap-4 sm:grid-cols-2">
           {destino.ubicacion && (
             <div className="rounded-lg bg-stone-50 p-4">
-              <p className="text-sm font-semibold text-stone-700">📍 Ubicación</p>
+              <p className="text-sm font-semibold text-stone-700">Ubicación</p>
               <p className="text-stone-600">{destino.ubicacion}</p>
             </div>
           )}
           {destino.atractivos && (
             <div className="rounded-lg bg-stone-50 p-4">
-              <p className="text-sm font-semibold text-stone-700">⭐ Atractivos</p>
+              <p className="text-sm font-semibold text-stone-700">Atractivos</p>
               <p className="text-stone-600">{destino.atractivos}</p>
             </div>
           )}
@@ -84,7 +84,7 @@ export default async function DestinoPage({ params }: Props) {
       {/* Viajes disponibles */}
       <section className="space-y-6">
         <div>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold text-stone-200">
             Viajes a {destino.nombre}
             {viajes.length > 0 && (
               <span className="ml-2 text-lg text-stone-500">

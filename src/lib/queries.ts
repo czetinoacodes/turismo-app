@@ -4,7 +4,6 @@ import type { Destino, Viaje } from "./types";
 
 const VIAJE_SELECT = "*, destinos(nombre, slug, imagen_url)";
 
-// Obtener todos los destinos, ordenados por nombre
 export const getDestinos = cache(async (): Promise<Destino[]> => {
   const { data, error } = await supabase
     .from("destinos")
@@ -16,7 +15,6 @@ export const getDestinos = cache(async (): Promise<Destino[]> => {
   return data;
 });
 
-// Obtener todos los viajes, ordenados por fecha (próximos primero)
 export const getViajes = cache(async (): Promise<Viaje[]> => {
   const { data, error } = await supabase
     .from("viajes")
@@ -28,7 +26,6 @@ export const getViajes = cache(async (): Promise<Viaje[]> => {
   return data;
 });
 
-// Obtener un viaje específico por ID
 export const getViajeById = cache(async (id: number): Promise<Viaje | null> => {
   const { data, error } = await supabase
     .from("viajes")
@@ -40,7 +37,6 @@ export const getViajeById = cache(async (id: number): Promise<Viaje | null> => {
   return data;
 });
 
-// Obtener un destino por slug
 export const getDestinoBySlug = cache(async (slug: string): Promise<Destino | null> => {
   const { data, error } = await supabase
     .from("destinos")
@@ -52,7 +48,6 @@ export const getDestinoBySlug = cache(async (slug: string): Promise<Destino | nu
   return data;
 });
 
-// Obtener viajes de un destino específico
 export const getViajesByDestino = cache(async (destinoId: number): Promise<Viaje[]> => {
   const { data, error } = await supabase
     .from("viajes")
