@@ -18,8 +18,8 @@ export default async function HomePage() {
 
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&h=1200&fit=crop"
-            alt="Playa hermosa de El Salvador"
+            src="https://ysdatxyjposwjnhwzqsw.supabase.co/storage/v1/object/sign/destinos/Surf-City-1-El-Tunco-El-Salvador.jpg?token=eyJraWQiOiI5NWIyZTMxMy02ZTdlLTQ1YTItOWQwMC1iNTE5MDY5NjFjYTQiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZXN0aW5vcy9TdXJmLUNpdHktMS1FbC1UdW5jby1FbC1TYWx2YWRvci5qcGciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzkwNTYyNjYxLCJleHAiOjE4MjIwOTg2NjF9.K5ZKrLFn_ENU1mGlzl31zagUk_GODIsOh4lFE9yPdh1z5mG83R0LNWz0xPxTdc2lnEUts2NdHqo-oTUe9VcP4A"
+            alt="Playa El Tunco"
             fill
             className="object-cover"
             priority
@@ -48,7 +48,7 @@ export default async function HomePage() {
       </section>
 
       {/* VIAJES SECTION */}
-      <section id="viajes" className="py-16 bg-stone-70 px-6">
+      <section id="viajes" className="py-12 bg-stone-70 px-6">
         <div className="mx-auto max-w-7xl">
           <h1
             className="text-4xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight"
@@ -108,7 +108,7 @@ export default async function HomePage() {
       </section>
 
       {/* COTIZA TU VIAJE CON NOSOTROS */}
-      <section id="destinos" className="bg-zinc-300 px-5 py-20">
+      <section id="destinos" className="bg-zinc-300 px-5 py-12">
         <div className="mx-auto max-w-7xl">
           <h1
             className="text-5xl md:text-6xl lg:text-8xl font-black text-black/90 mb-6 leading-tight text-left"

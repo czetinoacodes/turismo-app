@@ -18,6 +18,17 @@ function formatearFecha(fecha: string): string {
   });
 }
 
+
+function formatearHora(hora: string): string {
+  const date = new Date(`2024-01-01 ${hora}`);
+  return date.toLocaleTimeString("es-SV", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
+
+
 export default function ViajeCard({ viaje }: { viaje: Viaje }) {
   return (
     <Link
@@ -63,7 +74,7 @@ export default function ViajeCard({ viaje }: { viaje: Viaje }) {
         {/* Info: Fecha y hora */}
         <div className="space-y-1 text-sm text-stone-200 font-light">
           <p className="font-semibold">Fecha: {formatearFecha(viaje.fecha)}</p>
-          <p>Hora: {viaje.hora_salida} - {viaje.hora_retorno}</p>
+          <p>Hora: {formatearHora(viaje.hora_salida)} - {formatearHora(viaje.hora_retorno)}</p>
         </div>
 
         {/* Servicios */}
@@ -72,7 +83,7 @@ export default function ViajeCard({ viaje }: { viaje: Viaje }) {
             {viaje.tipo_transporte}
           </span>
           {viaje.servicio_domiciliar && (
-            <span className="inline-block rounded bg-purple-100 px-2 py-1 text-xs font-medium text-purple-700">
+            <span className="inline-block rounded bg-yellow-400 px-2 py-1 text-xs font-medium text-black">
               Servicio Domiciliar
             </span>
           )}

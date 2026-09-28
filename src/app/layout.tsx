@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link';
+import Image from "next/image";
+
 
 
 const poppins = Poppins({
@@ -31,12 +33,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main className="flex-1 w-full m-0">{children}</main>
 
-        <footer className="border-t border-yellow-400 bg-stone-90 py-8 text-center text-sm text-stone-500 flex-col md:flex-row">
-          <div className="flex justify-between mx-auto max-w-full ">
+        <footer className="border-t border-yellow-400 bg-stone-900 pb-6 text-center text-sm text-stone-500">
+          <div className="flex justify-between mx-auto max-w-full flex-col md:flex-row gap-8">
+
             {/*footer 1*/}
-            <div className="order-1  px-10 w-full max-w-2/5">
+            <div className="order-1 px-10 w-full md:max-w-2/5 flex flex-col items-center">
+              {/* Logo */}
+              <div className="relative w-48 h-48">
+                <Image
+                  src="https://ysdatxyjposwjnhwzqsw.supabase.co/storage/v1/object/sign/destinos/logo%20acotours%20bus.png?token=eyJraWQiOiI5NWIyZTMxMy02ZTdlLTQ1YTItOWQwMC1iNTE5MDY5NjFjYTQiLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJkZXN0aW5vcy9sb2dvIGFjb3RvdXJzIGJ1cy5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzkwNTYzNzY2LCJleHAiOjE4MjIwOTk3NjZ9.UzqStd_LopdB5ojMLGV1T0MhzAJRxaI0ztskQwPUmun1Ro4pL1RnBxeUyxZ6Psef3BBjiGNkbHheoHbVW7hd_A"
+                  alt="Logo ACOTOURS"
+                  fill
+                  sizes="(min-width: 668px) 668px, 100vw"
+                  className="object-contain"
+                />
+              </div>
+
               <h1
-                className="text-3xl md:text-4xl lg:text-6xl font-black text-amber-400 mb-6 leading-tight text-center"
+                className="text-3xl md:text-4xl lg:text-6xl font-black text-amber-400 mb-6 leading-tight"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 ACOTOURS
@@ -44,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/*footer 2*/}
-            <div className="order-2 w-full max-w-3/5">
+            <div className="order-2 w-full md:max-w-3/5 content-center">
               <p className="pb-5 font-bold">
                 Contáctanos
               </p>
@@ -68,10 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             </div>
           </div>
+
           <p className="pt-10">ACOTOURS 2026 | Todos los derechos reservados.-</p>
-
-
-
         </footer>
       </body>
     </html>

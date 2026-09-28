@@ -54,14 +54,23 @@ export default async function ViajePage({ params }: Props) {
     year: "numeric",
   });
 
+const hora_salidaFormato = new Date(`2024-01-01 ${viaje.hora_salida}`).toLocaleTimeString("es-SV", {
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: true,
+});
+
+const hora_retornoFormato = new Date(`2024-01-01 ${viaje.hora_retorno}`).toLocaleTimeString("es-SV", {
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: true,
+});
+
+
   return (
     <article className="mx-auto w-full px-15">
-      <Link href="/" className="text-sm text-stone-500 hover:text-blue-700">
-        ← Volver al inicio
-      </Link>
 
       {/* Imagen del destino */}
-      
       <div className="relative h-120 w-full overflow-hidden">
         {viaje.destinos?.imagen_url && (
           <Image
@@ -114,7 +123,7 @@ export default async function ViajePage({ params }: Props) {
             <div>
               <p className="font-semibold">Horario:</p>
               <p className="text-stone-400">
-                {viaje.hora_salida} - {viaje.hora_retorno}
+                {hora_salidaFormato} - {hora_retornoFormato}
               </p>
             </div>
             <div>
@@ -166,9 +175,11 @@ export default async function ViajePage({ params }: Props) {
       {/* Call to action */}
       <div className="rounded-2xl bg-yellow-200 py-10 my-10 text-center max-w-4xl justify-items-center mx-auto">
         <p className="mb-4 text-3xl font-bold text-black text-center">¿Te interesa este viaje?</p>
+        <a href="https://wa.me/78502463">
         <button className="rounded-full bg-yellow-400 px-8 py-3 font-semibold text-black transition hover:bg-blue-800">
           Reservar viaje
         </button>
+        </a>
       </div>
     </article>
   );

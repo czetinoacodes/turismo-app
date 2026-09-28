@@ -48,8 +48,8 @@ export default function QuienesSomosPage() {
             Contamos con transporte con aire acondicionado y coordinadores de grupo, procurando que nuestros pasajeros puedan disfrutar del recorrido con mayor comodidad y acompañamiento. Además, en determinados viajes ofrecemos servicio domiciliar al retorno en zonas céntricas de Santa Ana, facilitando aún más la experiencia para nuestros usuarios.
           </p>
 
-          <p className="text-xl md:text-2xl mb-8 font-bold">
-            Viajamos contigo para que descubras nuevos destinos, vivas nuevas experiencias y crees recuerdos que perduren.
+          <p className="text-xl md:text-2xl mb-8 font-bold text-center text-white">
+            ¡Viajamos contigo para que descubras nuevos destinos, vivas nuevas experiencias y crees recuerdos que perduren!
           </p>
         </div>
       </section>
