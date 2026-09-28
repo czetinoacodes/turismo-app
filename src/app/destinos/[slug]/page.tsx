@@ -49,7 +49,7 @@ export default async function DestinoPage({ params }: Props) {
             alt={destino.nombre}
             fill
             priority
-            sizes="(min-width: 768px) 768px, 100vw"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover"
           />
         </div>
@@ -59,7 +59,7 @@ export default async function DestinoPage({ params }: Props) {
       <header className="space-y-4 py-10">
         <h1  className="text-5xl md:text-6xl lg:text-8xl font-black text-white/90 mb-6 leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}>{destino.nombre}</h1>
-        <p className="text-stone-300 text-xl">{destino.descripcion}</p>
+        <p className="text-stone-300 text-xl text-justify">{destino.descripcion}</p>
 
         {/* Info del destino */}
         <div className="grid gap-4 sm:grid-cols-2 max-w-6xl mx-auto py-10 ">

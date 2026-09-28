@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## INFORMACIÓN GENERAL - DESCRIPCIÓN DEL PROYECTO
 
-## Getting Started
+ACOTOURS es una plataforma digital desarrollada para ACODES, S.A. de C.V., especializada en turismo nacional e internacional. 
 
-First, run the development server:
+El sitio funciona como portal informativo donde los usuarios pueden explorar viajes disponibles, visualizando detalles como destino, horarios, servicio de transporte, capacidad de pasajeros y estado actual de cada excursión. Todos los viajes incluyen botones de contacto directo por WhatsApp para reservas e información adicional.
+
+**Funcionalidades actuales:**
+- Catálogo de viajes con información completa
+- Búsqueda y exploración de destinos
+- Contacto directo por WhatsApp
+- Interfaz responsiva y moderna
+
+**Mejoras futuras:**
+- Panel de administrador para publicar viajes
+- Galería de fotos por viaje
+- Filtrado por estado de viaje
+- Sistema de reservas online
+
+## Características
+- Visualización de destinos turísticos
+- Búsqueda y filtrado de viajes
+- Información detallada de cada viaje (fecha, hora, precio, etc.)
+- Interfaz responsiva y moderna
+- Gestión de datos con Supabase
+
+## Tecnologías Utilizadas
+- **Frontend**: Next.js 14, React, TypeScript, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL)
+- **Hosting**: Vercel
+- **Almacenamiento**: Supabase Storage (imágenes)
+
+## Requisitos Previos
+- Node.js 18+ instalado
+- npm o yarn
+- Cuenta en Supabase
+- Cuenta en Vercel (para deploy)
+
+## Instalación Local
+
+### 1. Clonar el repositorio
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/CarlosZetino36/turismo-app.git
+cd acotours
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalar dependencias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Configurar variables de entorno
 
-## Learn More
+Crea un archivo `.env.local` en la raíz del proyecto:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_SUPABASE_URL=*credenciales de SUPABASE*
+NEXT_PUBLIC_SUPABASE_ANON_KEY=*credenciales de SUPABASE*
+SUPABASE_SERVICE_ROLE_KEY=*credenciales de SUPABASE*
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**¿Dónde obtener las claves?**
+- [Supabase](https://supabase.com)
+- Settings → API → Project URL y Anon key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Ejecutar en desarrollo
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abrir http://localhost:3000 en el navegador.

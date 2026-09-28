@@ -37,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex justify-between mx-auto max-w-full flex-col md:flex-row gap-8">
 
             {/*footer 1*/}
+            <Link href="/" className="flex flex-col items-center">
             <div className="order-1 px-10 w-full md:max-w-2/5 flex flex-col items-center">
               {/* Logo */}
               <div className="relative w-48 h-48">
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 ACOTOURS
               </h1>
             </div>
+            </Link>
 
             {/*footer 2*/}
             <div className="order-2 w-full md:max-w-3/5 content-center">

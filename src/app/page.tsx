@@ -123,7 +123,7 @@ export default async function HomePage() {
             Escríbenos y explora las diferentes opciones que tenemos para ofrecerte.
           </p>
           <a
-            href="#viajes"
+            href="https://wa.me/78502463?text=Hola%2C+quiero+cotizar+un+viaje."
             className="px-8 py-4 bg-amber-500 hover:bg-yellow-200 text-black font-semibold rounded-full transition transform hover:scale-105 shadow-lg inline-block"
           >
             Cotizar mi viaje
